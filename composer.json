@@ -2,52 +2,62 @@
     "name": "jeffersongoncalves/filament-lgpd-takedown",
     "description": "Filament plugin for laravel-lgpd-takedown: decide ECA Digital content notices in the panel, report grave cases to the authorities, handle author appeals and see abusive reporters.",
     "keywords": [
+        "jeffersongoncalves",
         "laravel",
         "filament",
         "filament-plugin",
-        "filament-lgpd-takedown"
+        "lgpd",
+        "eca-digital",
+        "takedown",
+        "content-moderation",
+        "child-safety",
+        "anpd"
     ],
     "homepage": "https://github.com/jeffersongoncalves/filament-lgpd-takedown",
     "license": "MIT",
-    "type": "library",
     "authors": [
         {
-            "name": "Jefferson Simão Gonçalves",
+            "name": "Jefferson Gonçalves",
             "email": "gerson.simao.92@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.1",
-        "filament/filament": "^3.0",
+        "php": "^8.2",
+        "filament/filament": "^3.3",
+        "jeffersongoncalves/filament-plugin-core": "^1.0",
+        "jeffersongoncalves/laravel-lgpd-takedown": "^1.0",
         "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
-        "orchestra/testbench": "^8.0|^9.0",
+        "jeffersongoncalves/pest-plugin-database-migrations": "^1.0",
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^10.0|^11.0",
         "pestphp/pest": "^3.0|^4.0",
-        "larastan/larastan": "^2.0|^3.0",
-        "laravel/pint": "^1.0"
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
     },
     "autoload": {
         "psr-4": {
-            "JeffersonGoncalves\\Filament\\LgpdTakedown\\": "src/"
+            "JeffersonGoncalves\\Filament\\LgpdTakedown\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JeffersonGoncalves\\Filament\\LgpdTakedown\\Tests\\": "tests/"
+            "JeffersonGoncalves\\Filament\\LgpdTakedown\\Tests\\": "tests"
         }
     },
     "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint",
-        "analyse": "vendor/bin/phpstan analyse"
+        "format": "vendor/bin/pint"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
         }
     },
     "extra": {
