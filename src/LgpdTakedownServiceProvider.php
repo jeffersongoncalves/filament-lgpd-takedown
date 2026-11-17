@@ -2,17 +2,17 @@
 
 namespace JeffersonGoncalves\Filament\LgpdTakedown;
 
+use JeffersonGoncalves\FilamentPluginCore\BasePackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class LgpdTakedownServiceProvider extends PackageServiceProvider
+class LgpdTakedownServiceProvider extends BasePackageServiceProvider
 {
+    public static string $name = 'filament-lgpd-takedown';
+
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('filament-lgpd-takedown')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigrations();
+            ->name(static::$name)
+            ->hasTranslations();
     }
 }
