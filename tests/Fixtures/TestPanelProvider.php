@@ -4,6 +4,7 @@ namespace JeffersonGoncalves\Filament\LgpdTakedown\Tests\Fixtures;
 
 use Filament\Panel;
 use Filament\PanelProvider;
+use JeffersonGoncalves\Filament\LgpdTakedown\LgpdTakedownPlugin;
 
 class TestPanelProvider extends PanelProvider
 {
@@ -13,6 +14,9 @@ class TestPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->login();
+            ->login()
+            ->plugins([
+                LgpdTakedownPlugin::make(),
+            ]);
     }
 }
